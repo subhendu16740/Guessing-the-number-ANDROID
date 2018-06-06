@@ -10,20 +10,24 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     int randomNumber;
+    public void makeTOast(String string)
+    {
+        Toast.makeText(MainActivity.this,string, Toast.LENGTH_SHORT).show();
+    }
     public void guess(View view) {
         EditText guessEditText = (EditText) findViewById(R.id.guessEditText);
 
         int guessInt = Integer.parseInt(guessEditText.getText().toString());
         if (guessInt > randomNumber) {
-            Toast.makeText(MainActivity.this, "Lower", Toast.LENGTH_SHORT).show();
+           makeTOast("Lower");
         }
         else if(guessInt < randomNumber)
         {
-            Toast.makeText(MainActivity.this, "Higher", Toast.LENGTH_SHORT).show();
+            makeTOast("Higher");
         }
         else
         {
-            Toast.makeText(MainActivity.this, "Guessed it right Try Again", Toast.LENGTH_SHORT).show();
+            makeTOast("YOu Guessed it right Great Try Again");
             Random rand = new Random();
             randomNumber = rand.nextInt(100)+1;
         }
